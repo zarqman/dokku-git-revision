@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
+
+
+store-revision() {
+  local APP="$1" ; local IMAGE_SOURCE_TYPE="$2" ; local TMP_WORK_DIR="$3" ; local REV="$4"
+
+  if [[ ! -z "$REV" ]]; then
+    dokku_log_info1_quiet "Capturing git revision..."
+    echo "$REV" > $TMP_WORK_DIR/REVISION
+  fi
+}
+
+store-revision "$@"

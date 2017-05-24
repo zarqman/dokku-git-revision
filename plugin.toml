@@ -1,0 +1,4 @@
+[plugin]
+description = "Captures the git revision and makes it available at /app/REVISION"
+version = "1.0.0"
+[plugin.config]
